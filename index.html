@@ -54,21 +54,36 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+html,
+    body {
+      position: relative;
+      height: 100%;
+    }
 
-.swiper-container {
-	width: 1400px;
-	height: 2338px;
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+	.swiper-container {
+	width: 100%;
+	height: 100%;
 	}
 
 	.swiper-slide {
+		text-align: center;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 
 	.swiper-slide video {
-		width: 1660px;
-		height: 2200px;
+		width: 100%;
+		height:  100%;
 		object-fit: contain;
 	}
 

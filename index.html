@@ -3,8 +3,8 @@
 <head>
 	<title>MP4 Swiper</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	<meta name="viewport" content="width=1688,height=2388, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
 	<style>
 
 html,
@@ -14,10 +14,6 @@ html,
     }
 
     body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
       margin: 0;
       padding: 0;
     }
@@ -36,8 +32,8 @@ html,
 
 	.swiper-slide video {
 		width: 100%;
-		height:  100%;
-		object-fit: contain;
+		height: 100%;
+		transform: scale(1.3, 1);
 	}
 
 
@@ -48,9 +44,9 @@ html,
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide"><img src="images/開頭.jpg" height="2380px" ></div>
+			<div class="swiper-slide"><img src="images/開頭.jpg" ></div>
       			<div class="swiper-slide">
-				<video id="video1" preload="auto"  >
+				<video id="video1" preload="auto" >
 					<source src="mp4/1_打電話.mp4" type="video/mp4">
 				</video>
 			</div>

@@ -45,6 +45,9 @@ body {
   height: auto;
   width: 100%;
 }
+.locked {
+	pointer-events: none; /* Disable touch events */
+}
 
 	</style>
 </head>
@@ -114,7 +117,8 @@ body {
 	<!-- Swiper JS -->
 	<script src="https://unpkg.com/swiper@9.3.2/swiper-bundle.min.js"></script>
 <script>
-	
+		var isLocked = false;
+	var lockTimer = null;
 	// Initialize Swiper
 	var swiper = new Swiper('.swiper-container', {
 		direction: 'vertical',
@@ -128,13 +132,30 @@ body {
 		},
 		allowSlidePrev: false
 	});
+	function lockPage() {
+		if (!isLocked) {
+			isLocked = true;
+			document.body.style.overflow = 'hidden'; // Hide scrollbars
+			document.body.classList.add('locked'); // Add 'locked' class to disable touch events
+		}
+	}
+
+	// Function to unlock the page and enable touch events
+	function unlockPage() {
+		if (isLocked) {
+			isLocked = false;
+			document.body.style.overflow = ''; // Show scrollbars
+			document.body.classList.remove('locked'); // Remove 'locked' class to enable touch events
+		}
+	}
 
 	// Pause videos when slide is not in focus
 	swiper.on('slideChangeTransitionStart', function() {
 		var previousSlide = swiper.slides[swiper.previousIndex];
 		var previousVideo = previousSlide.querySelector('video');
 		previousVideo.currentTime = 0;
-		previousVideo.removeAttribute('preload'); // Remove preload attribute from previous video
+		lockPage(); // Lock the page during slide transition
+		clearTimeout(lockTimer); // Clear any existing lock timer
 	});
 
 	// Play video when slide is in focus
@@ -143,6 +164,10 @@ body {
 		var currentVideo = currentSlide.querySelector('video');
 		currentVideo.play();
 		currentVideo.preload = 'auto'; // Set preload attribute to auto for current video
+
+		// Unlock the page after 5 seconds
+		lockTimer = setTimeout(unlockPage, 5000)
+		
 	});
 	
 </script>

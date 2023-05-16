@@ -55,54 +55,49 @@ body {
 		<div class="swiper-wrapper">
 			<div class="swiper-slide"><img class="img1" src="images/開頭.jpg" ></div>
       			<div class="swiper-slide">
-				<video id="video1" preload="auto" >
-					<source src="mp4/little.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video2" preload="auto" >
-					<source src="mp4/little2.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video3" preload="auto" >
-					<source src="mp4/little3.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video4" preload="auto" >
-					<source src="mp4/little4.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video5" preload="auto" >
-					<source src="mp4/little5.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video6" preload="auto" >
-					<source src="mp4/little6.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video7" preload="auto">
-					<source src="mp4/little7.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video8" preload="auto" >
-					<source src="mp4/little8.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video9" preload="auto" >
-					<source src="mp4/little9.mp4" type="video/mp4">
-				</video>
-			</div>
-			<div class="swiper-slide">
-				<video id="video10" preload="auto" >
-					<source src="mp4/little10.mp4" type="video/mp4">
-				</video>
+					<video id="video1" preload="none" >
+						<source src="mp4/little.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video2" preload="none">
+						<source src="mp4/little2.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video3" preload="none">
+						<source src="mp4/little3.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video4" preload="none">
+						<source src="mp4/little4.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video5" preload="none">
+						<source src="mp4/little5.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video6" preload="none">
+						<source src="mp4/little6.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video7" preload="none">
+						<source src="mp4/little7.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video8" preload="none">
+						<source src="mp4/little8.mp4" type="video/mp4">
+					</video>
+				</div>
+				<div class="swiper-slide">
+					<video id="video9" preload="none">
+						<source src="mp4/little9.mp4" type="video/mp4">
+					</video>
 			</div>
 			<div class="swiper-slide"><img class="img2"src="images/結束.jpg" ></div>
 		</div>
@@ -113,38 +108,39 @@ body {
 
 	<!-- Swiper JS -->
 	<script src="https://unpkg.com/swiper@9.3.2/swiper-bundle.min.js"></script>
-	<script>
-		
-		// Initialize Swiper
-		var swiper = new Swiper('.swiper-container', {
-			direction: 'vertical',
-			loop: true,
-			autoplay: {
-				delay: 10000,
-				disableOnInteraction: true
-			},
-			pagination: {
-				
-				clickable: true
-			},
-			allowSlidePrev: false
-		});
+<script>
+	
+	// Initialize Swiper
+	var swiper = new Swiper('.swiper-container', {
+		direction: 'vertical',
+		loop: true,
+		autoplay: {
+			delay: 10000,
+			disableOnInteraction: true
+		},
+		pagination: {
+			clickable: true
+		},
+		allowSlidePrev: false
+	});
 
-		// Pause videos when slide is not in focus
-		swiper.on('slideChangeTransitionStart', function() {
-			var previousSlide = swiper.slides[swiper.previousIndex];
-			var previousVideo = previousSlide.querySelector('video');
-			previousVideo.currentTime = 0;
-		});
+	// Pause videos when slide is not in focus
+	swiper.on('slideChangeTransitionStart', function() {
+		var previousSlide = swiper.slides[swiper.previousIndex];
+		var previousVideo = previousSlide.querySelector('video');
+		previousVideo.currentTime = 0;
+		previousVideo.removeAttribute('preload'); // Remove preload attribute from previous video
+	});
 
-		// Play video when slide is in focus
-		swiper.on('slideChangeTransitionEnd', function() {
-			var currentSlide = swiper.slides[swiper.activeIndex];
-			var currentVideo = currentSlide.querySelector('video');
-			currentVideo.play();
-		});
-		
-	</script>
+	// Play video when slide is in focus
+	swiper.on('slideChangeTransitionEnd', function() {
+		var currentSlide = swiper.slides[swiper.activeIndex];
+		var currentVideo = currentSlide.querySelector('video');
+		currentVideo.play();
+		currentVideo.preload = 'auto'; // Set preload attribute to auto for current video
+	});
+	
+</script>
 
 </body>
 </html>

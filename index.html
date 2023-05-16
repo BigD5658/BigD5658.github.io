@@ -6,12 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"  />
 
 	<style>
-
-html,
-    body {
-      position: relative;
-      height: 100%;
-    }
+html, body {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+}
 
     body {
       margin: 0;
@@ -34,7 +38,12 @@ html,
 		width: 100%;
 		height: 100%;
 	}
-
+	.img1{max-width: 100%; /* 圖片最大寬度為父元素的寬度 */
+  height: auto; /* 高度自動根據寬度進行調整 */
+  width: 100%;}
+	.img2{max-width: 100%; /* 圖片最大寬度為父元素的寬度 */
+  height: auto; /* 高度自動根據寬度進行調整 */
+  width: 100%;}
 
 	</style>
 </head>
@@ -43,7 +52,7 @@ html,
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide"><img src="images/開頭.jpg" ></div>
+			<div class="swiper-slide"><img class="img1" src="images/開頭.jpg" ></div>
       			<div class="swiper-slide">
 				<video id="video1" preload="auto" >
 					<source src="mp4/little.mp4" type="video/mp4">
@@ -94,7 +103,7 @@ html,
 					<source src="mp4/little10.mp4" type="video/mp4">
 				</video>
 			</div>
-			<div class="swiper-slide"><img src="images/結束.jpg" ></div>
+			<div class="swiper-slide"><img class="img2"src="images/結束.jpg" ></div>
 		</div>
 		<!-- Add Pagination -->
 		<div class="swiper-pagination"></div>

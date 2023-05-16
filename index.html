@@ -61,63 +61,64 @@ body {
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-
 			<div class="swiper-slide">
+				<video id="video10" preload="auto" src=""></video>
 				<img class="img1" src="images/開頭.jpg" >
+				<video id="video10" preload="auto" src=""></video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video1" preload="auto" >
-					<source src="mp4/little - Compressed with FlexClip.mp4"autoplay type="video/mp4">
+					<source src="mp4/little - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			
 			<div class="swiper-slide">
 				<video id="video2" preload="auto" >
-					<source src="mp4/little2 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little2 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			
 			<div class="swiper-slide">
 				<video id="video3" preload="auto" >
-					<source src="mp4/little3 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little3 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			
 			<div class="swiper-slide">
 				<video id="video4" preload="auto" >
-					<source src="mp4/little4 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little4 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video5" preload="auto" >
-					<source src="mp4/little5 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little5 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video6" preload="auto" >
-					<source src="mp4/little6 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little6 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video7" preload="auto">
-					<source src="mp4/little7 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little7 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video8" preload="auto" >
-					<source src="mp4/little8 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little8 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video9" preload="auto" >
-					<source src="mp4/little9 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little9 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video10" preload="auto" >
-					<source src="mp4/little10 - Compressed with FlexClip.mp4" type="video/mp4">
+					<source src="mp4/little10 - Compressed with FlexClip - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
-			</div>
+			</div>ss
 			<div class="swiper-slide"><img class="img2"src="images/結束.jpg" ></div>
 		</div>
 		<!-- Add Pagination -->
@@ -133,7 +134,7 @@ body {
 		direction: 'vertical',
 		loop: true,
 		autoplay: {
-			delay: 10000,
+			delay: 5000,
 			disableOnInteraction: true
 		},
 		pagination: {
@@ -147,6 +148,7 @@ body {
 		var previousSlide = swiper.slides[swiper.previousIndex];
 		var previousVideo = previousSlide.querySelector('video');
 		previousVideo.currentTime = 0;
+		previousVideo.pause();
 
 	});
 

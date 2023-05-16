@@ -10,11 +10,13 @@ html, body {
     position: relative;
     height: 100%;
     width: 100%;
+
 }
 
 body {
   margin: 0;
   padding: 0;
+
 }
 
 .swiper-container {
@@ -29,6 +31,7 @@ body {
 	align-items: center;
 }
 
+
 .swiper-slide video {
 	width: 100%;
 	height: 100%;
@@ -38,73 +41,81 @@ body {
   max-width: 100%;
   height: auto;
   width: 100%;
+  pointer-events: auto;
 }
 
 .img2 {
   max-width: 100%;
   height: auto;
   width: 100%;
+  pointer-events: auto;
 }
-.locked {
-	pointer-events: none; /* Disable touch events */
-}
+
+
 
 	</style>
 </head>
 <body>
+	
   <body style="overflow:hidden">
 	<!-- Swiper -->
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide"><img class="img1" src="images/開頭.jpg" ></div>
-      			<div class="swiper-slide">
+
+			<div class="swiper-slide">
+				<img class="img1" src="images/開頭.jpg" >
+			</div>
+			<div class="swiper-slide">
 				<video id="video1" preload="auto" >
-					<source src="mp4/1_打電話.mp4" type="video/mp4">
+					<source src="mp4/little - Compressed with FlexClip.mp4"autoplay type="video/mp4">
 				</video>
 			</div>
+			
 			<div class="swiper-slide">
 				<video id="video2" preload="auto" >
-					<source src="mp4/2_找衣服.mp4" type="video/mp4">
+					<source src="mp4/little2 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
+			
 			<div class="swiper-slide">
 				<video id="video3" preload="auto" >
-					<source src="mp4/3_大太陽.mp4" type="video/mp4">
+					<source src="mp4/little3 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
+			
 			<div class="swiper-slide">
 				<video id="video4" preload="auto" >
-					<source src="mp4/4_坐公車.mp4" type="video/mp4">
+					<source src="mp4/little4 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video5" preload="auto" >
-					<source src="mp4/5_派對.mp4" type="video/mp4">
+					<source src="mp4/little5 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video6" preload="auto" >
-					<source src="mp4/6_找男生.mp4" type="video/mp4">
+					<source src="mp4/little6 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video7" preload="auto">
-					<source src="mp4/7_吃蛋糕.mp4" type="video/mp4">
+					<source src="mp4/little7 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video8" preload="auto" >
-					<source src="mp4/8_走路回家.mp4" type="video/mp4">
+					<source src="mp4/little8 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video9" preload="auto" >
-					<source src="mp4/9_到家.mp4" type="video/mp4">
+					<source src="mp4/little9 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video10" preload="auto" >
-					<source src="mp4/10_睡不著.mp4" type="video/mp4">
+					<source src="mp4/little10 - Compressed with FlexClip.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide"><img class="img2"src="images/結束.jpg" ></div>
@@ -117,8 +128,6 @@ body {
 	<!-- Swiper JS -->
 	<script src="https://unpkg.com/swiper@9.3.2/swiper-bundle.min.js"></script>
 <script>
-		var isLocked = false;
-	var lockTimer = null;
 	// Initialize Swiper
 	var swiper = new Swiper('.swiper-container', {
 		direction: 'vertical',
@@ -130,32 +139,15 @@ body {
 		pagination: {
 			clickable: true
 		},
-		allowSlidePrev: false
 	});
-	function lockPage() {
-		if (!isLocked) {
-			isLocked = true;
-			document.body.style.overflow = 'hidden'; // Hide scrollbars
-			document.body.classList.add('locked'); // Add 'locked' class to disable touch events
-		}
-	}
 
-	// Function to unlock the page and enable touch events
-	function unlockPage() {
-		if (isLocked) {
-			isLocked = false;
-			document.body.style.overflow = ''; // Show scrollbars
-			document.body.classList.remove('locked'); // Remove 'locked' class to enable touch events
-		}
-	}
 
 	// Pause videos when slide is not in focus
 	swiper.on('slideChangeTransitionStart', function() {
 		var previousSlide = swiper.slides[swiper.previousIndex];
 		var previousVideo = previousSlide.querySelector('video');
 		previousVideo.currentTime = 0;
-		lockPage(); // Lock the page during slide transition
-		clearTimeout(lockTimer); // Clear any existing lock timer
+
 	});
 
 	// Play video when slide is in focus
@@ -165,10 +157,10 @@ body {
 		currentVideo.play();
 		currentVideo.preload = 'auto'; // Set preload attribute to auto for current video
 
-		// Unlock the page after 5 seconds
-		lockTimer = setTimeout(unlockPage, 5000)
-		
+
 	});
+
+	
 	
 </script>
 

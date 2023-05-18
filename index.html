@@ -50,9 +50,6 @@ body {
   width: 100%;
   pointer-events: auto;
 }
-
-
-
 	</style>
 </head>
 <body>
@@ -68,55 +65,55 @@ body {
 			</div>
 			<div class="swiper-slide">
 				<video id="video1" preload="auto" >
-					<source src="video/1_打電話.mp4" type="video/mp4">
+					<source src="mp4/1_打電話.mp4" type="video/mp4">
 				</video>
 			</div>
 			
 			<div class="swiper-slide">
 				<video id="video2" preload="auto" >
-					<source src="video/2_找衣服.mp4" type="video/mp4">
+					<source src="mp4/2_找衣服.mp4" type="video/mp4">
 				</video>
 			</div>
 			
 			<div class="swiper-slide">
 				<video id="video3" preload="auto" >
-					<source src="video/3_大太陽.mp4" type="video/mp4">
+					<source src="mp4/3_大太陽.mp4" type="video/mp4">
 				</video>
 			</div>
 			
 			<div class="swiper-slide">
 				<video id="video4" preload="auto" >
-					<source src="video/4_坐公車.mp4" type="video/mp4">
+					<source src="mp4/4_坐公車.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video5" preload="auto" >
-					<source src="video/5_派對.mp4" type="video/mp4">
+					<source src="mp4/5_派對.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video6" preload="auto" >
-					<source src="video/6_找男生.mp4" type="video/mp4">
+					<source src="mp4/6_找男生.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video7" preload="auto">
-					<source src="video/7_吃蛋糕.mp4" type="video/mp4">
+					<source src="mp4/7_吃蛋糕.mp4"type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video8" preload="auto" >
-					<source src="video/8_走路回家.mp4" type="video/mp4">
+					<source src="mp4/8_走路回家.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video9" preload="auto" >
-					<source src="video/9_到家.mp4" type="video/mp4">
+					<source src="mp4/9_到家.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide">
 				<video id="video10" preload="auto" >
-					<source src="video/10_睡不著.mp4" type="video/mp4">
+					<source src="mp4/10_睡不著.mp4" type="video/mp4">
 				</video>
 			</div>
 			<div class="swiper-slide"><img class="img2"src="images/結束.jpg" ></div>
@@ -141,28 +138,20 @@ body {
 			clickable: true
 		},
 	});
-
-
 	// Pause videos when slide is not in focus
 	swiper.on('slideChangeTransitionStart', function() {
 		var previousSlide = swiper.slides[swiper.previousIndex];
 		var previousVideo = previousSlide.querySelector('video');
 		previousVideo.currentTime = 0;
 		previousVideo.pause();
-
 	});
-
 	// Play video when slide is in focus
 	swiper.on('slideChangeTransitionEnd', function() {
 		var currentSlide = swiper.slides[swiper.activeIndex];
 		var currentVideo = currentSlide.querySelector('video');
 		currentVideo.play();
 		currentVideo.preload = 'auto'; // Set preload attribute to auto for current video
-
-
 	});
-
-
 </script>
 
 </body>
